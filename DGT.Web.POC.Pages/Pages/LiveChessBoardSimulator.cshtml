@@ -1,0 +1,55 @@
+﻿@page
+@model DGT.Web.POC.Pages.Pages.LiveChessBoardSimulatorModel
+@{
+    ViewData["Title"] = "Simulator";
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        function onChange(oldPos, newPos) {
+            $.ajax({
+                type: 'GET',
+                method: 'GET',
+                url: 'https://localhost:7183/BoardStateSimulator',
+                data: { currentState: Chessboard.objToFen(newPos) },
+                contentType: 'text/html',
+                //crossDomain: true,
+                dataType: 'JSON',
+                //headers: {
+                //    "Access-Control-Allow-Origin": "https://localhost:7183/BoardStateSimulator",
+                //    'Access-Control-Allow-Headers': 'Content-Type, application/json',
+                //    'Access-Control-Allow-Methods': 'POST',
+                //},
+                success: function (r) {
+                    console.log("RESULT", r);
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr);
+                    console.log(status);
+                    console.log(error);
+                }
+            });
+        }
+
+        var config = {
+            draggable: true,
+            dropOffBoard: 'trash',
+            onChange: onChange,
+            position: 'start',
+            sparePieces: true
+        }
+
+        var board = Chessboard('myBoard', config);
+
+        $('#startBtn').on('click', board.start)
+        $('#clearBtn').on('click', board.clear)
+
+
+    </script>
+}
+
+<div>
+    <div id="myBoard" class="chess-board-fill-view"></div>
+    <button id="startBtn">Start Position</button>
+    <button id="clearBtn">Clear Board</button>
+</div>

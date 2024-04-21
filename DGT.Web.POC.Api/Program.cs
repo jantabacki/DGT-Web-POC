@@ -2,6 +2,18 @@ using DGT.Web.POC.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy(name: MyAllowSpecificOrigins,
+//                      policy =>
+//                      {
+//                          policy.WithOrigins("https://localhost:7183",
+//                                              "https://localhost:7064/LiveChessBoardSimulator");
+//                      });
+//});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -9,7 +21,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IBoardConnectorService, BoardConnectorService>();
+//builder.Services.AddSingleton<IBoardConnectorService, BoardConnectorService>();
+builder.Services.AddSingleton<IBoardConnectorService, BoardConnectorSimulatorService>();
 
 var app = builder.Build();
 
@@ -21,6 +34,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

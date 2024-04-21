@@ -14,7 +14,7 @@ namespace DGT.Web.POC.Api.Controllers
             this.BoardConnectorService = boardConnectorService;
         }
 
-        [HttpGet(Name = "GetBoardState")]
+        [HttpGet]
         public string Get()
         {
             return BoardConnectorService.GetCurrentState();

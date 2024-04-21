@@ -7,8 +7,28 @@
 @section Scripts {
     <script type="text/javascript">
         var board = Chessboard('myBoard', 'start');
-        var ruyLopez = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R';
-        board.position(ruyLopez, false)
+        //var ruyLopez = 'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R';
+        //board.position(ruyLopez, false)
+        function callback(board) {
+            $.ajax({
+                type: 'GET',
+                url: 'https://localhost:7183/BoardState',
+                //contentType: 'application/json',
+                contentType: 'text/html',
+                crossDomain: true,
+                dataType: 'jsonp',
+                success: function (result) {
+                    console.log(result);
+                    board.position(result, false);
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr);
+                    console.log(status);
+                    console.log(error);
+                }
+            });
+        }
+        setInterval(callback, 500, board);
     </script>
 }
 
