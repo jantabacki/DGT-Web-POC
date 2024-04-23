@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DGT.Web.POC.Api", "..\DGT.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DGT.Web.POC.HardwareConnector", "..\DGT.Web.POC.HardwareConnector\DGT.Web.POC.HardwareConnector.csproj", "{AD044359-0DA4-4629-B09C-F6ADFFC81C9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGT.Web.POC.Pages", "..\DGT.Web.POC.Pages\DGT.Web.POC.Pages.csproj", "{0C6D45F4-3E25-425D-A54A-E08E47A253A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DGT.Web.POC.Pages", "..\DGT.Web.POC.Pages\DGT.Web.POC.Pages.csproj", "{0C6D45F4-3E25-425D-A54A-E08E47A253A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGT.Web.POC.SingleApp", "..\DGT.Web.POC.SingleApp\DGT.Web.POC.SingleApp.csproj", "{5D2062D0-8D98-4A66-A982-372E8981AA1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0C6D45F4-3E25-425D-A54A-E08E47A253A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C6D45F4-3E25-425D-A54A-E08E47A253A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C6D45F4-3E25-425D-A54A-E08E47A253A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D2062D0-8D98-4A66-A982-372E8981AA1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D2062D0-8D98-4A66-A982-372E8981AA1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D2062D0-8D98-4A66-A982-372E8981AA1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D2062D0-8D98-4A66-A982-372E8981AA1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

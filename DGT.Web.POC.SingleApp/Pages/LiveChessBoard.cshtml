@@ -1,0 +1,32 @@
+﻿@page
+@model DGT.Web.POC.Pages.Pages.LiveChessBoardModel
+@{
+    ViewData["Title"] = "Live Chess Board";
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        var board = Chessboard('myBoard', 'start');
+        function callback(board) {
+            $.ajax({
+                type: 'GET',
+                url: 'https://localhost:7299/BoardState',
+                contentType: 'application/json',
+                crossDomain: true,
+                dataType: 'json',
+                success: function (result) {
+                    console.log(result);
+                    board.position(result.currentState, false);
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr);
+                    console.log(status);
+                    console.log(error);
+                }
+            });
+        }
+        setInterval(callback, 500, board);
+    </script>
+}
+
+<div id="myBoard" class="chess-board-fill-view"></div>
